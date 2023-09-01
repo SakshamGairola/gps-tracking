@@ -21,7 +21,7 @@ import java.sql.Date;
 public class VehicleModel {
 
     @Id
-    @SequenceGenerator(name="vehicle_seq_generator", sequenceName = "vehicle_seq", allocationSize = 50)
+    @SequenceGenerator(name = "vehicle_seq_generator", sequenceName = "vehicle_seq")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "vehicle_seq_generator")
     private Long vehicleId;
 
@@ -32,12 +32,12 @@ public class VehicleModel {
     private String bike_model;
 
     @Column(name = "ins_exp_date")
-    private String ins_exp_date;
+    private Date ins_exp_date;
 
     @Column(name = "purchase_date")
-    private String purchase_date;
+    private Date purchase_date;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "owner_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
