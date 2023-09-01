@@ -3,6 +3,7 @@ package com.microservice.gpstracker.GpsData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -19,6 +20,11 @@ public class GpsDataServiceImpl implements GpsDataService{
     @Override
     public GpsDataModel saveGpsDataModel(GpsDataModel gpsDataModel){
         return this.gpsDataRepository.save(gpsDataModel);
+    }
+
+    @Override
+    public List<GpsDataModel> getAllCoordinates(Long vehicleId, Date startDate, Date endDate) {
+        return this.gpsDataRepository.findAllGPSDataByVehicleModelVehicleIdAndLocationDateBetween(vehicleId, startDate, endDate);
     }
 
 }
