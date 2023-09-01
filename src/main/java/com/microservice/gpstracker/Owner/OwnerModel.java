@@ -35,6 +35,4 @@ public class OwnerModel {
     @Column(name = "email")
     private String email;
 
-//    @OneToMany(mappedBy = "ownerModel", cascade = CascadeType.ALL)
-//    private Set<VehicleModel> vehicleModels;
 }
