@@ -28,4 +28,4 @@ INSERT INTO gps_data_info (gps_data_id, latitude, longitude, location_date, vehi
     (11, -18.92668, -106.33464, '2023-06-24', 4),
     (12, 45.10248, 165.59049, '2023-06-28', 4);
 
-SELECT * from owner_info;
+--SELECT * from owner_info;
