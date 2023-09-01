@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import java.sql.Date;
+
 @Table(name = "gpsData_info")
 @Entity
 @Data
@@ -19,7 +21,7 @@ import org.hibernate.annotations.OnDeleteAction;
 public class GpsDataModel {
 
     @Id
-    @SequenceGenerator(name="gpsData_seq_generator", sequenceName = "gpsData_seq")
+    @SequenceGenerator(name = "gpsData_seq_generator", sequenceName = "gpsData_seq")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "gpsData_seq_generator")
     private Long gpsDataId;
 
@@ -29,10 +31,10 @@ public class GpsDataModel {
     @Column(name = "latitude")
     private Double latitude;
 
-    @Column(name = "date")
-    private String date;
+    @Column(name = "locationDate")
+    private Date locationDate;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "vehicle_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
