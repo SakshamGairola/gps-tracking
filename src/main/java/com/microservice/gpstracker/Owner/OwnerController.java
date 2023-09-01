@@ -18,8 +18,8 @@ public class OwnerController {
         return this.ownerService.getAllOwners();
     }
 
-    @GetMapping("/get-owner/{id}")
-    public OwnerModel getOwnerById(@PathVariable("id") Long owner_id) {
+    @GetMapping("/get-owner/{owner_id}")
+    public OwnerModel getOwnerById(@PathVariable("owner_id") Long owner_id) {
         return this.ownerService.getOwnerById(owner_id).get();
     }
 
@@ -33,8 +33,8 @@ public class OwnerController {
         return this.ownerService.deleteAllOwners();
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String deleteOwnerById(@PathVariable("id") Long owner_id) {
+    @DeleteMapping("/delete/{owner_id}")
+    public String deleteOwnerById(@PathVariable("owner_id") Long owner_id) {
         return this.ownerService.deleteOwnerById(owner_id);
     }
 
