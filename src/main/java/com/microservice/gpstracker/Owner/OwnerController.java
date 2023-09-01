@@ -18,7 +18,7 @@ public class OwnerController {
         return this.ownerService.getAllOwners();
     }
 
-    @GetMapping("/get/{owner_id}")
+    @GetMapping("/get-owner/{owner_id}")
     public OwnerModel getOwnerById(@PathVariable("owner_id") Long owner_id) {
         return this.ownerService.getOwnerById(owner_id).get();
     }
